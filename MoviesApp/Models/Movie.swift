@@ -11,7 +11,7 @@ import Foundation
 //Decodes root level element
 struct MovieResponse: Codable {
     let movies: [Movie]
-    
+
     private enum CodingKeys: String, CodingKey {
         case movies = "Search"
     }
@@ -23,8 +23,8 @@ struct Movie: Codable {
     let year: String
     let imdbId: String
     let poster: String
-    
-    private enum CodeingKeys: String, CodingKey {
+
+    private enum CodingKeys: String, CodingKey {
         case title = "Title"
         case year = "Year"
         case imdbId = "imdbID"
