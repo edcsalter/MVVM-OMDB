@@ -8,21 +8,32 @@
 
 import Foundation
 
-class MovieListViewModel: ObservableObject {
+class MovieListViewModel: ViewModelBase {
     @Published var movies = [MovieViewModel]()
     let httpClient = HTTPClient()
    
     //Could make this mutating to fix errors because we're in a struct
     func searchByName(_ name: String) {
-        httpClient.getMoviesBy(search: name) { result in
+        guard !name.isEmpty else {
+            return
+        }
+        
+        
+        self.loadingState = .loading
+        httpClient.getMoviesBy(search: name.trimmedAndEscape()) { result in
             switch result {
             case .success(let movies):
                 if let movies = movies {
                     DispatchQueue.main.async {
                         self.movies = movies.map(MovieViewModel.init)
+                        self.loadingState = .success
                     }
                 }
             case .failure(let error):
+                DispatchQueue.main.async {
+                    self.loadingState = .failed
+                }
+
                 print(error.localizedDescription)
             }
             
