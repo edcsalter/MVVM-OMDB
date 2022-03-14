@@ -2,8 +2,7 @@
 //  Constants.swift
 //  MoviesApp
 //
-//  Created by Mohammad Azam on 7/27/20.
-//  Copyright © 2020 Mohammad Azam. All rights reserved.
+//  Created by Ed Salter on 3/10/22.
 //
 
 import Foundation

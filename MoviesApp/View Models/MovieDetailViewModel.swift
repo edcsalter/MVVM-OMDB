@@ -3,8 +3,7 @@
 //  MoviesApp
 //
 //  Created by Ed Salter on 3/11/22.
-//  Copyright © 2022 Mohammad Azam. All rights reserved.
-//
+//  Copyright © 2022 Ed Salter. All rights reserved.
 
 import Foundation
 
